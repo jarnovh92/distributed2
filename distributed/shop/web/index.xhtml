@@ -1,13 +1,15 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
-    <h:head>
-             
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
+    <h:head> 
         <link rel="stylesheet" type="text/css" href="css/jajo.css" />
         <title>The JaJo shop</title>
     </h:head>
     <h:body>
+        
        <div id="main">
             <div id="header">
                 <div id="widgetBar">
@@ -28,44 +30,30 @@
 
                 <img src="" id="logoText" alt="The JaJo Shop"/>
             </div>
-
+           
             <div id="indexLeftColumn">
                 <div id="welcomeText">
                     <p>[ welcome text ]</p>
+                    <!-- test to access context parameters -->
+                    categoryImagePath: ${initParam.categoryImagePath}
+                    productImagePath: ${initParam.productImagePath}
                 </div>
             </div>
 
             <div id="indexRightColumn">
-                <div class="categoryBox">
-                    <a href="#">
-                        <span class="categoryLabelText">pants</span>
-                    </a>
-                </div>
-                <div class="categoryBox">
-                    <a href="#">
-                        <span class="categoryLabelText">shirts</span>
-                    </a>
-                </div>
-                <div class="categoryBox">
-                    <a href="#">
-                        <span class="categoryLabelText">hoodies</span>
-                    </a>
-                </div>
-                <div class="categoryBox">
-                    <a href="#">
-                        <span class="categoryLabelText">coats</span>
-                    </a>
-                </div>
-                <div class="categoryBox">
-                    <a href="#">
-                        <span class="categoryLabelText">socks</span>
-                    </a>
-                </div>
-                <div class="categoryBox">
-                    <a href="#">
-                        <span class="categoryLabelText">underwear</span>
-                    </a>
-                </div>
+                
+                <h:dataTable value="#{categoriesBean.getCategoriesList()}" var="cat" border="1">
+                    <h:column>
+                        <div class="categoryBox">
+                            <a href="category?${category.id}">
+                                <span class="categoryLabelText">#{cat.name}</span>
+
+                                <img src="${initParam.categoryImagePath}#{cat.name}.jpg"
+                                    alt="${category.name}"></img>
+                            </a>
+                        </div>                    
+                    </h:column>
+                </h:dataTable>
                 
             </div>
 
