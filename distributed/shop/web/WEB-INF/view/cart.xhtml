@@ -8,35 +8,17 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
          <link rel="stylesheet" type="text/css" href="css/jajo.css" />
         
-        <title>Facelets Template</title>
+        <title>Cart</title>
     </h:head>
   
 
     <h:body>
 
-         <div id="main">
-            <div id="header">
-                <div id="widgetBar">
-
-                    <div class="headerWidget">
-                        [ language toggle ]
-                    </div>
-
-                    <div class="headerWidget"></div>
-
-                    <div class="headerWidget">
-                        [ shopping cart widget ]
-                    </div>
-
-                </div>
-
-                <a href="#">
-                    <img src="#" id="logo" alt="Affable Bean logo"/>
-                </a>
-
-                <img src="#" id="logoText" alt="the affable bean"/>
-            </div>
-
+         <div id="header">
+             <ui:insert name="header">
+                 <ui:include src="/template/commonheader.xhtml" />
+             </ui:insert>
+         </div>
             <div id="centerColumn">
 
                 <p>Your shopping cart contains x items.</p>
